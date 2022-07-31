@@ -8,6 +8,7 @@ function clearlines(){
     $('#route_name').empty();
 }
 
+// Преобразование UNIX даты
 function unixToDate(val){
     dateObj = new Date(val * 1000);
     utcString = dateObj.toUTCString();
@@ -18,16 +19,15 @@ function unixToDate(val){
 // Основной раздел
 $(document).ready(function() {
 
-// загрузка select
+// Загрузка select
 $.get( "core/request.php", { req_type: "get_select_routes" } )
     .done(function( data ) {
         $("#inputState").append(data);
     });
-// конец - загрузка select
 
 });
 
-// загрузка расписания
+// Загрузка расписания
 function get_route(){
     let timeIndex = 0;
     let th_head = '<th scope="col">№ п/п</th><th scope="col">Остановки</th>';
@@ -75,4 +75,3 @@ function get_route(){
 
         });
 }
-// конец - загрузка расписания
